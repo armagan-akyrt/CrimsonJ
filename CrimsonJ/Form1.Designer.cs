@@ -44,26 +44,30 @@ namespace CrimsonJ
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(4, 59);
+            this.monthCalendar1.Location = new System.Drawing.Point(5, 73);
+            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // btnToday
             // 
-            this.btnToday.Location = new System.Drawing.Point(75, 24);
+            this.btnToday.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.btnToday.Location = new System.Drawing.Point(113, 30);
+            this.btnToday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnToday.Name = "btnToday";
-            this.btnToday.Size = new System.Drawing.Size(75, 23);
+            this.btnToday.Size = new System.Drawing.Size(100, 28);
             this.btnToday.TabIndex = 1;
             this.btnToday.Text = "Today";
-            this.btnToday.UseVisualStyleBackColor = true;
+            this.btnToday.UseVisualStyleBackColor = false;
             this.btnToday.Click += new System.EventHandler(this.btnToday_Click);
             // 
             // btnForward
             // 
-            this.btnForward.Location = new System.Drawing.Point(156, 24);
+            this.btnForward.Location = new System.Drawing.Point(221, 30);
+            this.btnForward.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnForward.Name = "btnForward";
-            this.btnForward.Size = new System.Drawing.Size(75, 23);
+            this.btnForward.Size = new System.Drawing.Size(100, 28);
             this.btnForward.TabIndex = 2;
             this.btnForward.Text = "Forward";
             this.btnForward.UseVisualStyleBackColor = true;
@@ -71,9 +75,10 @@ namespace CrimsonJ
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(4, 24);
+            this.btnBack.Location = new System.Drawing.Point(5, 30);
+            this.btnBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.Size = new System.Drawing.Size(100, 28);
             this.btnBack.TabIndex = 3;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -81,9 +86,11 @@ namespace CrimsonJ
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1014, 24);
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1352, 24);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -92,9 +99,11 @@ namespace CrimsonJ
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(4, 233);
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(5, 287);
+            this.listBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(227, 262);
+            this.listBox1.Size = new System.Drawing.Size(302, 322);
             this.listBox1.TabIndex = 6;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -104,11 +113,12 @@ namespace CrimsonJ
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Location = new System.Drawing.Point(243, 59);
+            this.richTextBox1.Location = new System.Drawing.Point(327, 66);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.richTextBox1.ShowSelectionMargin = true;
-            this.richTextBox1.Size = new System.Drawing.Size(759, 436);
+            this.richTextBox1.Size = new System.Drawing.Size(1009, 544);
             this.richTextBox1.TabIndex = 7;
             this.richTextBox1.Text = "";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
@@ -116,9 +126,10 @@ namespace CrimsonJ
             // button1
             // 
             this.button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button1.Location = new System.Drawing.Point(463, 24);
+            this.button1.Location = new System.Drawing.Point(617, 30);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(100, 28);
             this.button1.TabIndex = 8;
             this.button1.Text = "Preview";
             this.button1.UseVisualStyleBackColor = true;
@@ -127,9 +138,10 @@ namespace CrimsonJ
             // button2
             // 
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button2.Location = new System.Drawing.Point(570, 24);
+            this.button2.Location = new System.Drawing.Point(760, 30);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(100, 28);
             this.button2.TabIndex = 9;
             this.button2.Text = "Insert";
             this.button2.UseVisualStyleBackColor = true;
@@ -138,9 +150,10 @@ namespace CrimsonJ
             // button3
             // 
             this.button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.button3.Location = new System.Drawing.Point(675, 24);
+            this.button3.Location = new System.Drawing.Point(900, 30);
+            this.button3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(100, 28);
             this.button3.TabIndex = 10;
             this.button3.Text = "Format";
             this.button3.UseVisualStyleBackColor = true;
@@ -149,9 +162,10 @@ namespace CrimsonJ
             // btnContacts
             // 
             this.btnContacts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnContacts.Location = new System.Drawing.Point(927, 24);
+            this.btnContacts.Location = new System.Drawing.Point(1213, 30);
+            this.btnContacts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnContacts.Name = "btnContacts";
-            this.btnContacts.Size = new System.Drawing.Size(75, 23);
+            this.btnContacts.Size = new System.Drawing.Size(100, 28);
             this.btnContacts.TabIndex = 11;
             this.btnContacts.Text = "Contacts";
             this.btnContacts.UseVisualStyleBackColor = true;
@@ -159,10 +173,10 @@ namespace CrimsonJ
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1014, 564);
+            this.ClientSize = new System.Drawing.Size(1352, 694);
             this.Controls.Add(this.btnContacts);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -175,6 +189,7 @@ namespace CrimsonJ
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "CrimsonJ";
             this.Load += new System.EventHandler(this.Form1_Load);
