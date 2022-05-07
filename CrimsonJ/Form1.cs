@@ -31,7 +31,7 @@ namespace CrimsonJ
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            // attempting to make this  a drop down menu 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -75,6 +75,21 @@ namespace CrimsonJ
         }
 
         private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }
