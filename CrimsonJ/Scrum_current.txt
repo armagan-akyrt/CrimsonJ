@@ -1,0 +1,8 @@
+Here is the current todo list. 
+
+1. Solve the maximum rescaling problem (Done).
+2. Disovering the functionality of the elements in MSForms and their intractions. 
+3. Making the buttons do things.
+4. Find a way to store. 
+5. Discover formating.
+6. Finish classes and packages.
