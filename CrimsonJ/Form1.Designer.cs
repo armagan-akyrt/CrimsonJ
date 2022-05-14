@@ -1,7 +1,7 @@
 ﻿
 namespace CrimsonJ
 {
-    partial class Form1
+    partial class FrmCrimsonJ
     {
         /// <summary>
         /// Required designer variable.
@@ -30,14 +30,14 @@ namespace CrimsonJ
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCrimsonJ));
+            this.cldCJ = new System.Windows.Forms.MonthCalendar();
             this.btnToday = new System.Windows.Forms.Button();
             this.btnForward = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtxEntry = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -47,16 +47,17 @@ namespace CrimsonJ
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAppointment = new System.Windows.Forms.Button();
             this.btnJournal = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // monthCalendar1
+            // cldCJ
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(5, 68);
-            this.monthCalendar1.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 0;
-            this.monthCalendar1.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
+            this.cldCJ.Location = new System.Drawing.Point(5, 68);
+            this.cldCJ.Margin = new System.Windows.Forms.Padding(9, 10, 9, 10);
+            this.cldCJ.Name = "cldCJ";
+            this.cldCJ.TabIndex = 0;
+            this.cldCJ.DateChanged += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar1_DateChanged);
             // 
             // btnToday
             // 
@@ -115,31 +116,31 @@ namespace CrimsonJ
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(5, 269);
             this.listBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(263, 287);
+            this.listBox1.Size = new System.Drawing.Size(263, 275);
             this.listBox1.TabIndex = 6;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
-            // richTextBox1
+            // rtxEntry
             // 
-            this.richTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.rtxEntry.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.richTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.richTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.richTextBox1.Location = new System.Drawing.Point(281, 62);
-            this.richTextBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.richTextBox1.ShowSelectionMargin = true;
-            this.richTextBox1.Size = new System.Drawing.Size(883, 510);
-            this.richTextBox1.TabIndex = 7;
-            this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.rtxEntry.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.rtxEntry.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rtxEntry.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rtxEntry.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.rtxEntry.Location = new System.Drawing.Point(281, 62);
+            this.rtxEntry.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.rtxEntry.Name = "rtxEntry";
+            this.rtxEntry.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.rtxEntry.ShowSelectionMargin = true;
+            this.rtxEntry.Size = new System.Drawing.Size(883, 510);
+            this.rtxEntry.TabIndex = 7;
+            this.rtxEntry.Text = "";
+            this.rtxEntry.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // button1
             // 
@@ -247,29 +248,47 @@ namespace CrimsonJ
             this.btnJournal.UseVisualStyleBackColor = false;
             this.btnJournal.Click += new System.EventHandler(this.button4_Click_1);
             // 
-            // Form1
+            // btnSave
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.BackColor = System.Drawing.Color.Transparent;
+            this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
+            this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
+            this.btnSave.Location = new System.Drawing.Point(1075, 612);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(89, 26);
+            this.btnSave.TabIndex = 13;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.button4_Click_2);
+            // 
+            // FrmCrimsonJ
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1183, 651);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnContacts);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtxEntry);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnForward);
             this.Controls.Add(this.btnToday);
-            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.cldCJ);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Constantia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.Name = "Form1";
+            this.Name = "FrmCrimsonJ";
             this.Text = "CrimsonJ";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
@@ -280,13 +299,13 @@ namespace CrimsonJ
 
         #endregion
 
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar cldCJ;
         private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnForward;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtxEntry;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
@@ -296,6 +315,7 @@ namespace CrimsonJ
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnAppointment;
         private System.Windows.Forms.Button btnJournal;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 
