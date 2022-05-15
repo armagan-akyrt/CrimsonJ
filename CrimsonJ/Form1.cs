@@ -16,7 +16,9 @@ namespace CrimsonJ
     public partial class FrmCrimsonJ : Form
     {
         bool en;
-        
+        string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\";
+
+
         public FrmCrimsonJ()
         {
             InitializeComponent();
@@ -61,6 +63,11 @@ namespace CrimsonJ
         }
         private void Form1_Load(object sender, EventArgs e)
         {
+
+            
+            if (!Directory.Exists(temp))
+                Directory.CreateDirectory(temp);
+
             en = false;
 
             btnJournal.Hide();
@@ -156,7 +163,8 @@ namespace CrimsonJ
             
             string txt = rtxEntry.Text;
             JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
-            string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\";
+            //string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\Journal\\";
+            temp += "Journal\\";
             // Start writing to file
             if (!Directory.Exists(temp))
                 Directory.CreateDirectory(temp);
@@ -164,7 +172,7 @@ namespace CrimsonJ
             string date = journal.CreatedAt.Year + "-" + journal.CreatedAt.Month+ ".txt";
             string path = Path.Combine(temp, date);
 
-            string startEnd = journal.CreatedAt.ToShortDateString() + "\n";
+            string startEnd = "\n" + journal.CreatedAt.ToShortDateString() + "\n";
             FileStream fs;
             if (!File.Exists(path))
                 fs = File.Create(path);
