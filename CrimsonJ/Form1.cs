@@ -9,20 +9,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
+using System.Text.RegularExpressions;
 
 
 namespace CrimsonJ
 {
     public partial class FrmCrimsonJ : Form
     {
-        bool en;
+
         string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\";
+        bool en;
 
 
         public FrmCrimsonJ()
         {
             InitializeComponent();
             
+
         }
         
         /// <summary>
@@ -64,14 +67,39 @@ namespace CrimsonJ
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            en = false;
             
+
+
             if (!Directory.Exists(temp))
                 Directory.CreateDirectory(temp);
 
-            en = false;
+            string fPath = temp +"Journal\\"+ cldCJ.TodayDate.Year + "-" + cldCJ.TodayDate.Month + ".txt";
+
+            if (File.Exists(fPath))
+            {
+                FileStream fs = File.OpenRead(fPath);
+                var sr = new StreamReader(fs);
+
+                //string journalEntry = sr.ReadToEnd();
+                string today = cldCJ.TodayDate.ToShortDateString();
+                string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
+                Regex entry = new Regex(pattern);
+
+                string jEntry = sr.ReadToEnd();
+                Match mt = entry.Match(jEntry);
+                rtxEntry.Text = mt.Value;
+
+                fs.Close(); sr.Close();
+            }
+                
+            
+            
 
             btnJournal.Hide();
             btnAppointment.Hide();
+
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -129,7 +157,28 @@ namespace CrimsonJ
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             cldCJ.MaxSelectionCount = 1;
-            
+
+            // Open the entry associated with the selected date.
+            string fPath = temp + "Journal\\" + cldCJ.SelectionStart.Year + "-" + cldCJ.SelectionStart.Month + ".txt";
+
+            if (File.Exists(fPath))
+            {
+                FileStream fs = File.OpenRead(fPath);
+                var sr = new StreamReader(fs);
+
+                //string journalEntry = sr.ReadToEnd();
+                string today = cldCJ.SelectionStart.ToShortDateString();
+                string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
+                Regex entry = new Regex(pattern);
+
+                string jEntry = sr.ReadToEnd();
+                Match mt = entry.Match(jEntry);
+                rtxEntry.Text = mt.Value;
+
+                fs.Close(); sr.Close();
+            }
+
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -139,11 +188,37 @@ namespace CrimsonJ
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            formatText();
         }
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+            string txt = rtxEntry.Text;
+            JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
+            //string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\Journal\\";
+            temp += "Journal\\";
+            // Start writing to file
+            if (!Directory.Exists(temp))
+                Directory.CreateDirectory(temp);
+
+            string date = journal.CreatedAt.Year + "-" + journal.CreatedAt.Month + ".txt";
+            string path = Path.Combine(temp, date);
+
+            string startEnd = "\n" + journal.CreatedAt.ToShortDateString() + "\n";
+            FileStream fs;
+            if (!File.Exists(path))
+                fs = File.Create(path);
+
+            else
+                fs = File.Open(path, FileMode.Append);
+
+
+            var sr = new StreamWriter(fs);
+            sr.Write(startEnd + rtxEntry.Text + startEnd);
+
+
+            sr.Close(); fs.Close();
+            // End writing to file
 
         }
 
