@@ -48,6 +48,7 @@ namespace CrimsonJ
             this.btnAppointment = new System.Windows.Forms.Button();
             this.btnJournal = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -265,6 +266,11 @@ namespace CrimsonJ
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.button4_Click_2);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
             // FrmCrimsonJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,6 +322,7 @@ namespace CrimsonJ
         private System.Windows.Forms.Button btnAppointment;
         private System.Windows.Forms.Button btnJournal;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
 
