@@ -22,7 +22,7 @@ namespace CrimsonJ
             this.CreatedAt = createdAt;
 
             // Format identifiers
-            formatIdentifiers.Add("(===)(.*)(===)"); // header
+            formatIdentifiers.Add("(===)(.*)(===)"); // header 1
             formatIdentifiers.Add("(---)(.*)(---)"); // underline
             formatIdentifiers.Add("(~~~)(.*)(~~~)"); // italic
             formatIdentifiers.Add("(#)(.*)(#)"); // score out

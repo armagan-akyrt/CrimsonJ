@@ -16,7 +16,7 @@ namespace CrimsonJ
 {
     public partial class FrmCrimsonJ : Form
     {
-
+        #pragma warning disable IDE1006 // Naming Styles
         string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\";
         bool en;
 
@@ -31,7 +31,9 @@ namespace CrimsonJ
         /// <summary>
         /// Formats text according to user input. Check github readme for more documentation.
         /// </summary>
+
         public void formatText()
+
         {
             string txt = rtxEntry.Text;
             JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
@@ -46,7 +48,7 @@ namespace CrimsonJ
 
                 switch (type)
                 {
-                    case 0: // header, font: standart, 18, bold
+                    case 0: // header, font: standart, 24, bold
                         rtxEntry.SelectionFont = new Font(rtxEntry.Font.Name, 24, FontStyle.Bold);
                         break;
 
@@ -64,6 +66,64 @@ namespace CrimsonJ
                 }
             }
         }
+
+        public void saveToFile(string fPath)
+        {
+
+            string replaced;
+            string replacement = rtxEntry.Text;
+
+            if (File.Exists(fPath))
+            {
+                FileStream fs = File.OpenRead(fPath);
+                var sr = new StreamReader(fs);
+
+                //string journalEntry = sr.ReadToEnd();
+                string today = cldCJ.SelectionStart.ToShortDateString();
+                string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
+                Regex entry = new Regex(pattern);
+
+                string jEntry = sr.ReadToEnd();
+                Match mt = entry.Match(jEntry);
+                replaced = mt.Value;
+
+                fs.Close(); sr.Close();
+
+                FileStream fw = File.OpenWrite(fPath);
+                var sw = new StreamWriter(fw);
+                jEntry = jEntry.Replace(replaced, replacement);
+                sw.Write(jEntry);
+
+                sw.Close();
+
+            }
+        }
+
+        public void retrieveFromJournal(string fPath)
+        {
+            if (File.Exists(fPath))
+            {
+                FileStream fs = File.OpenRead(fPath);
+                var sr = new StreamReader(fs);
+
+                //string journalEntry = sr.ReadToEnd();
+                string today = cldCJ.SelectionStart.ToShortDateString();
+                string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
+                Regex entry = new Regex(pattern);
+
+                string jEntry = sr.ReadToEnd();
+                Match mt = entry.Match(jEntry);
+                rtxEntry.Text = mt.Value;
+
+                fs.Close(); sr.Close();
+            }
+            else
+            {
+                FileStream fs = File.Create(fPath);
+                fs.Close();
+            }
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -76,7 +136,7 @@ namespace CrimsonJ
 
             string fPath = temp +"Journal\\"+ cldCJ.TodayDate.Year + "-" + cldCJ.TodayDate.Month + ".txt";
 
-            if (File.Exists(fPath))
+            /*if (File.Exists(fPath))
             {
                 FileStream fs = File.OpenRead(fPath);
                 var sr = new StreamReader(fs);
@@ -91,9 +151,9 @@ namespace CrimsonJ
                 rtxEntry.Text = mt.Value;
 
                 fs.Close(); sr.Close();
-            }
-                
-            
+            }*/
+
+            retrieveFromJournal(fPath);
             
 
             btnJournal.Hide();
@@ -161,7 +221,9 @@ namespace CrimsonJ
             // Open the entry associated with the selected date.
             string fPath = temp + "Journal\\" + cldCJ.SelectionStart.Year + "-" + cldCJ.SelectionStart.Month + ".txt";
 
-            if (File.Exists(fPath))
+            retrieveFromJournal(fPath);
+            
+           /* if (File.Exists(fPath))
             {
                 FileStream fs = File.OpenRead(fPath);
                 var sr = new StreamReader(fs);
@@ -177,6 +239,11 @@ namespace CrimsonJ
 
                 fs.Close(); sr.Close();
             }
+            else
+            {
+                FileStream fs = File.Create(fPath);
+                fs.Close();
+            }*/
 
 
         }
@@ -196,13 +263,14 @@ namespace CrimsonJ
             string txt = rtxEntry.Text;
             JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
             //string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\Journal\\";
-            temp += "Journal\\";
+            //temp += "Journal\\";
             // Start writing to file
-            if (!Directory.Exists(temp))
-                Directory.CreateDirectory(temp);
+            string pJournal = temp + "Journal\\";
+            if (!Directory.Exists(pJournal))
+                Directory.CreateDirectory(pJournal);
 
             string date = journal.CreatedAt.Year + "-" + journal.CreatedAt.Month + ".txt";
-            string path = Path.Combine(temp, date);
+            string path = Path.Combine(pJournal, date);
 
             string startEnd = "\n" + journal.CreatedAt.ToShortDateString() + "\n";
             FileStream fs;
@@ -235,7 +303,37 @@ namespace CrimsonJ
         private void button4_Click_2(object sender, EventArgs e)
         {
 
-            
+            string fPath = temp + "Journal\\" + cldCJ.SelectionStart.Year + "-" + cldCJ.SelectionStart.Month + ".txt";
+
+            saveToFile(fPath);
+
+            /*if (File.Exists(fPath))
+            {
+                FileStream fs = File.OpenRead(fPath);
+                var sr = new StreamReader(fs);
+                
+                //string journalEntry = sr.ReadToEnd();
+                string today = cldCJ.SelectionStart.ToShortDateString();
+                string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
+                Regex entry = new Regex(pattern);
+
+                string jEntry = sr.ReadToEnd();
+                Match mt = entry.Match(jEntry);
+                replaced = mt.Value;
+
+                fs.Close(); sr.Close();
+
+                FileStream fw = File.OpenWrite(fPath);
+                var sw = new StreamWriter(fw);
+                jEntry = jEntry.Replace(replaced, replacement);
+                sw.Write(jEntry);
+
+                sw.Close();    
+
+            }*/
+
+
+            /*
             string txt = rtxEntry.Text;
             JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
             //string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\Journal\\";
@@ -264,10 +362,10 @@ namespace CrimsonJ
             // End writing to file
 
             formatText();
+            */
 
-        
         }
-
+        
         
     }
 }
