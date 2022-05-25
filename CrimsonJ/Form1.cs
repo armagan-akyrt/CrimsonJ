@@ -18,7 +18,7 @@ namespace CrimsonJ
     {
         #pragma warning disable IDE1006 // Naming Styles
         string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\";
-        bool en;
+        bool en, enCnt;
         string textIn;
 
         public FrmCrimsonJ()
@@ -81,23 +81,25 @@ namespace CrimsonJ
 
         public void saveToFile(string fPath)
         {
-
+            
             string replaced;
-            string replacement = rtxEntry.Text;
+            string replacement = rtxEntry.Text ;
 
             if (File.Exists(fPath))
             {
                 FileStream fs = File.OpenRead(fPath);
                 var sr = new StreamReader(fs);
 
-                //string journalEntry = sr.ReadToEnd();
+                
                 string today = cldCJ.SelectionStart.ToShortDateString();
                 string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
                 Regex entry = new Regex(pattern);
 
                 string jEntry = sr.ReadToEnd();
                 Match mt = entry.Match(jEntry);
-                replaced = mt.Value;
+                Match repl = entry.Match(replacement);
+                replacement = repl.Groups[2].Value;
+                replaced = mt.Groups[2].Value;
 
                 fs.Close(); sr.Close();
 
@@ -172,6 +174,9 @@ namespace CrimsonJ
             btnJournal.Hide();
             btnAppointment.Hide();
 
+            btnAddContact.Hide();
+            btnShowContacts.Hide();
+
 
         }
 
@@ -224,7 +229,18 @@ namespace CrimsonJ
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            if (!enCnt)
+            {
+                btnShowContacts.Show();
+                btnAddContact.Show();
+                enCnt = true;
+            }
+            else
+            {
+                btnShowContacts.Hide();
+                btnAddContact.Hide();
+                enCnt = false;
+            }
         }
 
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
@@ -273,6 +289,9 @@ namespace CrimsonJ
 
         private void button4_Click_1(object sender, EventArgs e)
         {
+
+         
+
             string txt = rtxEntry.Text;
             JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
             //string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\Journal\\";
@@ -286,16 +305,27 @@ namespace CrimsonJ
             string path = Path.Combine(pJournal, date);
 
             string startEnd = "\n" + journal.CreatedAt.ToShortDateString() + "\n";
+            
             FileStream fs;
+            bool exEnt = false;
             if (!File.Exists(path))
+             {
                 fs = File.Create(path);
+
+            }
 
             else
                 fs = File.Open(path, FileMode.Append);
 
-
             var sr = new StreamWriter(fs);
+
+            
+           
             sr.Write(startEnd + rtxEntry.Text + startEnd);
+            
+            
+           
+            
 
 
             sr.Close(); fs.Close();
@@ -378,7 +408,15 @@ namespace CrimsonJ
             */
 
         }
-        
-        
+
+        private void button4_Click_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

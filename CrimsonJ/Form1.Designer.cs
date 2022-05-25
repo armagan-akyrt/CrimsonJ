@@ -48,6 +48,8 @@ namespace CrimsonJ
             this.btnJournal = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnShowContacts = new System.Windows.Forms.Button();
+            this.btnAddContact = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cldCJ
@@ -196,7 +198,7 @@ namespace CrimsonJ
             this.btnContacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnContacts.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnContacts.Image = ((System.Drawing.Image)(resources.GetObject("btnContacts.Image")));
-            this.btnContacts.Location = new System.Drawing.Point(1062, 28);
+            this.btnContacts.Location = new System.Drawing.Point(990, 28);
             this.btnContacts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnContacts.Name = "btnContacts";
             this.btnContacts.Size = new System.Drawing.Size(89, 26);
@@ -257,6 +259,37 @@ namespace CrimsonJ
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnShowContacts
+            // 
+            this.btnShowContacts.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnShowContacts.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowContacts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowContacts.BackgroundImage")));
+            this.btnShowContacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowContacts.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnShowContacts.Location = new System.Drawing.Point(990, 62);
+            this.btnShowContacts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnShowContacts.Name = "btnShowContacts";
+            this.btnShowContacts.Size = new System.Drawing.Size(168, 26);
+            this.btnShowContacts.TabIndex = 14;
+            this.btnShowContacts.Text = "Show Contacts";
+            this.btnShowContacts.UseVisualStyleBackColor = false;
+            this.btnShowContacts.Click += new System.EventHandler(this.button4_Click_3);
+            // 
+            // btnAddContact
+            // 
+            this.btnAddContact.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAddContact.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddContact.BackgroundImage")));
+            this.btnAddContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddContact.Location = new System.Drawing.Point(990, 96);
+            this.btnAddContact.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnAddContact.Name = "btnAddContact";
+            this.btnAddContact.Size = new System.Drawing.Size(168, 26);
+            this.btnAddContact.TabIndex = 15;
+            this.btnAddContact.Text = "Add Contact";
+            this.btnAddContact.UseVisualStyleBackColor = false;
+            this.btnAddContact.Click += new System.EventHandler(this.button5_Click_1);
+            // 
             // FrmCrimsonJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +297,8 @@ namespace CrimsonJ
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1183, 651);
+            this.Controls.Add(this.btnAddContact);
+            this.Controls.Add(this.btnShowContacts);
             this.Controls.Add(this.btnAppointment);
             this.Controls.Add(this.btnJournal);
             this.Controls.Add(this.btnSave);
@@ -309,6 +344,8 @@ namespace CrimsonJ
         private System.Windows.Forms.Button btnJournal;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button btnShowContacts;
+        private System.Windows.Forms.Button btnAddContact;
     }
 }
 
