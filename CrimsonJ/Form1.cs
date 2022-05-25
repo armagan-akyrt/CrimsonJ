@@ -19,7 +19,7 @@ namespace CrimsonJ
         #pragma warning disable IDE1006 // Naming Styles
         string temp = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\CrimsonJ\\";
         bool en;
-
+        string textIn;
 
         public FrmCrimsonJ()
         {
@@ -36,9 +36,12 @@ namespace CrimsonJ
 
         {
             string txt = rtxEntry.Text;
+            textIn = txt;
             JournalEntry journal = new JournalEntry(1, txt, cldCJ.SelectionRange.Start);
-
+            
             List<int[]> lst = journal.format();
+
+            //rtxEntry.Text = journal.Entry;
 
             for (int i = 0; i < lst.Count; i++)
             {
@@ -46,9 +49,12 @@ namespace CrimsonJ
                 rtxEntry.SelectionStart = lst[i][1];
                 rtxEntry.SelectionLength = lst[i][2];
 
+                
+
                 switch (type)
                 {
                     case 0: // header, font: standart, 24, bold
+                        
                         rtxEntry.SelectionFont = new Font(rtxEntry.Font.Name, 24, FontStyle.Bold);
                         break;
 
@@ -63,7 +69,13 @@ namespace CrimsonJ
                     case 3: // strikeout, font: standart, def, strikeout
                         rtxEntry.SelectionFont = new Font(rtxEntry.Font.Name, rtxEntry.Font.Size, FontStyle.Strikeout);
                         break;
+
+                    case 4: // bullet point
+                        
+                        rtxEntry.SelectionBullet = true;
+                        break;
                 }
+                
             }
         }
 
@@ -127,6 +139,7 @@ namespace CrimsonJ
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            textIn = rtxEntry.Text;
             en = false;
             
 
@@ -164,7 +177,7 @@ namespace CrimsonJ
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            
+            textIn = rtxEntry.Text;
         }
 
         private void button2_Click(object sender, EventArgs e)

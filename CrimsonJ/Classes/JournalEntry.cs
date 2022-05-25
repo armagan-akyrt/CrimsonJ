@@ -17,7 +17,7 @@ namespace CrimsonJ
 
         public JournalEntry(int id, string entry, DateTime createdAt)
         {
-            this.Id = id;
+            this.Id = id; 
             this.Entry = entry;
             this.CreatedAt = createdAt;
 
@@ -26,6 +26,7 @@ namespace CrimsonJ
             formatIdentifiers.Add("(---)(.*)(---)"); // underline
             formatIdentifiers.Add("(~~~)(.*)(~~~)"); // italic
             formatIdentifiers.Add("(#)(.*)(#)"); // score out
+            formatIdentifiers.Add("(>>>)(.*)()"); // bullet points
 
         }
 
@@ -45,15 +46,20 @@ namespace CrimsonJ
             {
                 Regex rx = new Regex((string)formatIdentifiers[i]);
                 MatchCollection match = rx.Matches(entry);
+                
                 if (match.Count > 0)
                 {
                     foreach (Match mt in match)
                     {
 
-                        int start = mt.Index; // start index
-                        int length = mt.Length; // length of capture
+                        entry = rx.Replace(entry, mt.Groups[2].Value, 1);
+                       
+                        int start = mt.Groups[2].Index; // start index
+                        int length = mt.Groups[2].Length; // length of capture
                         int[] arr = { i, start, length };
                         lst.Add(arr);
+
+                        
                     }
                 }
                 
@@ -61,5 +67,8 @@ namespace CrimsonJ
 
             return lst;
         }
+
+
+    
     }
 }
