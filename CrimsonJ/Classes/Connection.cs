@@ -162,7 +162,8 @@ namespace CrimsonJ.Classes
         /// <returns></returns>
         public string GetFromAppointment(int appointmentId)
         {
-            return "";
+            string sql = "SELECT entry FROM Appointment WHERE appointmnetId = @appointmentID;"; //404
+            return sql  ; //404
         }
 
         /// <summary>
@@ -173,7 +174,7 @@ namespace CrimsonJ.Classes
         /// <param name="createdFor"> appointment date & time</param>
         public void InsertAppointment(string entry, DateTime createdAt, DateTime createdFor)
         {
-
+            string sql = " INSERT INTO Appointment(entry, createdAt, createdFor) VALUES(@entry, @createdAt, createdFor);"; //404  
         }
 
         /// <summary>
@@ -183,7 +184,8 @@ namespace CrimsonJ.Classes
         /// <param name="newDate"></param>
         public void ChangeDateAppointment(int appointmentId, DateTime newDate)
         {
-
+            string date = newDate.ToShortDateString(); // convert date to string //404
+            string sql = @"UPDATE Appointmnet SET createdFor = date WHERE appointmentID = @appointmentID;";  //404 
         }
 
         /// <summary>
@@ -193,7 +195,14 @@ namespace CrimsonJ.Classes
         /// <param name="newEntry"></param>
         public void ChangeEntryAppointment(int appointmentId, string newEntry)
         {
+            string sql = @"UPDATE Appointment SET entry = @newEntry WHERE appointmentId = @appointmentID;"; // 404
 
+            con.Open();
+            cmd = new SQLiteCommand(sql, con);
+            //cmd.Parameters.Add(new SQLiteParameter("@entry", newEntry)); // not sure about these 
+            //cmd.Parameters.Add(new SQLiteParameter("@createdAt", date));
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         /// <summary>
@@ -206,7 +215,7 @@ namespace CrimsonJ.Classes
         /// <param name="email"></param>
         public void InsertContact(string name, string surname, string address, string gsm, string email)
         {
-
+            string sql = "INSERT INTO Contacts (name, surname, address, gsm, email) VALUES (@name, @surname, @address, @gsm, @email);"; //404
         }
 
     }
