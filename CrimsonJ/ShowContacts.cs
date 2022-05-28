@@ -14,26 +14,30 @@ namespace CrimsonJ
 {
     public partial class ShowContacts : Form
     {
+    
         Connection conn;
         Contact selectedContact = new Contact("", "", "","", "");
         Dictionary<string, List<string>> contacts = new Dictionary<string, List<string>>();
         bool linkAppointment = false;
+        string email = string.Empty;
         public ShowContacts(bool linkAppointment)
         {
+            
             InitializeComponent();
             this.linkAppointment = linkAppointment; // check whether this panel is for linking appointment.
-            
+            MinimizeBox = false;
+            MaximizeBox = false;
         }
 
         private void lstContacts_SelectedIndexChanged(object sender, EventArgs e)
         {
             
-            string email = lstContacts.Text;
+            email = lstContacts.Text;
 
             if (email.Length == 0) ;
             else
             {
-                Regex rx = new Regex("(.*/\\s)(.+@.+\\.[A-z]+)(/.*)");
+                Regex rx = new Regex("(.*\\s)(.+@.+\\.[A-z]+)(\\s.*)");
                 Match match = rx.Match(email);
 
                 email = match.Groups[2].Value;
@@ -59,10 +63,10 @@ namespace CrimsonJ
             for (int i = 0; i < contacts["emails"].Count; i++)
             {
                 StringBuilder sb = new StringBuilder();
-                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "/ ");
+                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "\t \t ");
                 //sb.Append(contacts["surnames"][i] + ",");
-                sb.Append(contacts["gsms"][i] + "/ ");
-                sb.Append(contacts["emails"][i] + "/ ");
+                sb.Append(contacts["gsms"][i] + "\t \t ");
+                sb.Append(contacts["emails"][i] + " \t \t  ");
                 sb.Append(contacts["addresses"][i]);
                 string str = sb.ToString();
 
@@ -103,5 +107,11 @@ namespace CrimsonJ
         }
 
         public Contact PassContact { get { return selectedContact; } }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            conn.DeleteContact(email);
+
+        }
     }
 }

@@ -109,7 +109,7 @@ namespace CrimsonJ
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1183, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1183, 30);
             this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -118,10 +118,11 @@ namespace CrimsonJ
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 15;
             this.listBox1.Location = new System.Drawing.Point(5, 269);
             this.listBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(263, 275);
+            this.listBox1.Size = new System.Drawing.Size(263, 272);
             this.listBox1.TabIndex = 6;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -257,6 +258,7 @@ namespace CrimsonJ
             // 
             // contextMenuStrip1
             // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
@@ -293,7 +295,7 @@ namespace CrimsonJ
             // 
             // btnShowAppointment
             // 
-            this.btnShowAppointment.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnShowAppointment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowAppointment.BackColor = System.Drawing.Color.Transparent;
             this.btnShowAppointment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowAppointment.BackgroundImage")));
             this.btnShowAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -310,7 +312,7 @@ namespace CrimsonJ
             // 
             // FrmCrimsonJ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SeaShell;

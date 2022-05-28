@@ -466,7 +466,25 @@ namespace CrimsonJ.Classes
             con.Close();
 
 
-        }   
+        }
+        /// <summary>
+        /// Deletes specified contact from db
+        /// </summary>
+        /// <param name="email"> email of contact to delete</param>
+        public void DeleteContact(string email)
+        {
+            string sql = @"DELETE FROM Contacts WHERE email = @email";
+
+            con.Open();
+
+            cmd = new SQLiteCommand(sql, con);
+            cmd.Parameters.Add(new SQLiteParameter("@email", email));
+
+            cmd.ExecuteNonQuery();
+
+            con.Close();
+
+        }
 
     }
 }

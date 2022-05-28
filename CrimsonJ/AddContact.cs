@@ -18,6 +18,9 @@ namespace CrimsonJ
         public AddContact()
         {
             InitializeComponent();
+            MinimizeBox = false;
+            MaximizeBox = false;
+      
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -55,6 +58,7 @@ namespace CrimsonJ
         {
             Contact contact = new Contact(txtName.Text, txtSurname.Text, txtAddress.Text, txtGsm.Text, txtEmail.Text);
             conn.InsertContact(contact);
+            this.Close();
         }
 
         private void getContact_Click(object sender, EventArgs e)

@@ -23,6 +23,8 @@ namespace CrimsonJ
         public ShowAppointments()
         {
             InitializeComponent();
+            MaximizeBox = false;
+            MinimizeBox = false;
             
         }
 

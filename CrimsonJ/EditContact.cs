@@ -35,6 +35,8 @@ namespace CrimsonJ
         {
             conn = new Connection();
             conn.Connect();
+            MaximizeBox = false;
+            MinimizeBox = false;
 
             oldEmail = contact.email; // old email of the contact. If changes, this value will be used in sql
 

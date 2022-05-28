@@ -100,6 +100,7 @@ namespace CrimsonJ
             DateTime createdFor = cldAppointment.SelectionStart;
             
             conn.InsertAppointment(entry, DateTime.Today, createdFor, txtAppointmentName.Text, email);
+            this.Close();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
