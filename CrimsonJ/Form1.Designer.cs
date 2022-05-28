@@ -50,6 +50,7 @@ namespace CrimsonJ
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.btnShowContacts = new System.Windows.Forms.Button();
             this.btnAddContact = new System.Windows.Forms.Button();
+            this.btnShowAppointment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cldCJ
@@ -149,7 +150,7 @@ namespace CrimsonJ
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Location = new System.Drawing.Point(540, 28);
+            this.button1.Location = new System.Drawing.Point(579, 28);
             this.button1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(89, 26);
@@ -164,7 +165,7 @@ namespace CrimsonJ
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(676, 28);
+            this.button2.Location = new System.Drawing.Point(703, 28);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(87, 26);
@@ -198,7 +199,7 @@ namespace CrimsonJ
             this.btnContacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnContacts.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnContacts.Image = ((System.Drawing.Image)(resources.GetObject("btnContacts.Image")));
-            this.btnContacts.Location = new System.Drawing.Point(990, 28);
+            this.btnContacts.Location = new System.Drawing.Point(937, 28);
             this.btnContacts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnContacts.Name = "btnContacts";
             this.btnContacts.Size = new System.Drawing.Size(89, 26);
@@ -213,7 +214,7 @@ namespace CrimsonJ
             this.btnAppointment.BackColor = System.Drawing.Color.Transparent;
             this.btnAppointment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAppointment.BackgroundImage")));
             this.btnAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAppointment.Location = new System.Drawing.Point(676, 96);
+            this.btnAppointment.Location = new System.Drawing.Point(703, 96);
             this.btnAppointment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAppointment.Name = "btnAppointment";
             this.btnAppointment.Size = new System.Drawing.Size(168, 26);
@@ -228,7 +229,7 @@ namespace CrimsonJ
             this.btnJournal.BackColor = System.Drawing.Color.Transparent;
             this.btnJournal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnJournal.BackgroundImage")));
             this.btnJournal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnJournal.Location = new System.Drawing.Point(676, 62);
+            this.btnJournal.Location = new System.Drawing.Point(703, 62);
             this.btnJournal.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnJournal.Name = "btnJournal";
             this.btnJournal.Size = new System.Drawing.Size(168, 26);
@@ -261,12 +262,12 @@ namespace CrimsonJ
             // 
             // btnShowContacts
             // 
-            this.btnShowContacts.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnShowContacts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnShowContacts.BackColor = System.Drawing.Color.Transparent;
             this.btnShowContacts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowContacts.BackgroundImage")));
             this.btnShowContacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnShowContacts.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnShowContacts.Location = new System.Drawing.Point(990, 62);
+            this.btnShowContacts.Location = new System.Drawing.Point(937, 62);
             this.btnShowContacts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnShowContacts.Name = "btnShowContacts";
             this.btnShowContacts.Size = new System.Drawing.Size(168, 26);
@@ -277,11 +278,11 @@ namespace CrimsonJ
             // 
             // btnAddContact
             // 
-            this.btnAddContact.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnAddContact.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddContact.BackColor = System.Drawing.Color.Transparent;
             this.btnAddContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddContact.BackgroundImage")));
             this.btnAddContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnAddContact.Location = new System.Drawing.Point(990, 96);
+            this.btnAddContact.Location = new System.Drawing.Point(937, 96);
             this.btnAddContact.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAddContact.Name = "btnAddContact";
             this.btnAddContact.Size = new System.Drawing.Size(168, 26);
@@ -290,6 +291,23 @@ namespace CrimsonJ
             this.btnAddContact.UseVisualStyleBackColor = false;
             this.btnAddContact.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // btnShowAppointment
+            // 
+            this.btnShowAppointment.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnShowAppointment.BackColor = System.Drawing.Color.Transparent;
+            this.btnShowAppointment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowAppointment.BackgroundImage")));
+            this.btnShowAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShowAppointment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnShowAppointment.Image = ((System.Drawing.Image)(resources.GetObject("btnShowAppointment.Image")));
+            this.btnShowAppointment.Location = new System.Drawing.Point(1049, 28);
+            this.btnShowAppointment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.btnShowAppointment.Name = "btnShowAppointment";
+            this.btnShowAppointment.Size = new System.Drawing.Size(115, 26);
+            this.btnShowAppointment.TabIndex = 16;
+            this.btnShowAppointment.Text = "Show Appointments";
+            this.btnShowAppointment.UseVisualStyleBackColor = false;
+            this.btnShowAppointment.Click += new System.EventHandler(this.btnShowAppointment_Click);
+            // 
             // FrmCrimsonJ
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,6 +315,7 @@ namespace CrimsonJ
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.SeaShell;
             this.ClientSize = new System.Drawing.Size(1183, 651);
+            this.Controls.Add(this.btnShowAppointment);
             this.Controls.Add(this.btnAddContact);
             this.Controls.Add(this.btnShowContacts);
             this.Controls.Add(this.btnAppointment);
@@ -346,6 +365,7 @@ namespace CrimsonJ
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnShowContacts;
         private System.Windows.Forms.Button btnAddContact;
+        private System.Windows.Forms.Button btnShowAppointment;
     }
 }
 

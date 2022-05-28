@@ -151,14 +151,11 @@ namespace CrimsonJ
 
             textIn = rtxEntry.Text;
             en = false;
-            
+
 
 
             if (!Directory.Exists(temp))
                 Directory.CreateDirectory(temp);
-
-            string fPath = temp +"Journal\\"+ cldCJ.TodayDate.Year + "-" + cldCJ.TodayDate.Month + ".txt";
-
 
             rtxEntry.Text = conn.GetFromJournal(cldCJ.TodayDate);
             
@@ -201,22 +198,26 @@ namespace CrimsonJ
 
         public void richTextBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-
+            DateTime curr = cldCJ.SelectionStart;
+            curr = curr.AddDays(-1);
+            cldCJ.SelectionStart = curr;
         }
 
         private void btnForward_Click(object sender, EventArgs e)
         {
-
+            DateTime curr = cldCJ.SelectionStart;
+            curr = curr.AddDays(1);
+            cldCJ.SelectionStart = curr;
         }
 
         private void btnToday_Click(object sender, EventArgs e)
         {
-
+            cldCJ.SelectionStart = DateTime.Today;
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -240,6 +241,7 @@ namespace CrimsonJ
             cldCJ.MaxSelectionCount = 1;
 
             rtxEntry.Text = conn.GetFromJournal(cldCJ.SelectionStart);
+            formatText();
 
             
 
@@ -266,7 +268,8 @@ namespace CrimsonJ
 
         private void button5_Click(object sender, EventArgs e)
         {
-
+            AddAppointment frm = new AddAppointment(rtxEntry.Text);
+            frm.ShowDialog();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -282,12 +285,22 @@ namespace CrimsonJ
 
         private void button4_Click_3(object sender, EventArgs e)
         {
+            ShowContacts frm = new ShowContacts(false);
+            frm.ShowDialog();
+        }
 
+        private void btnShowAppointment_Click(object sender, EventArgs e)
+        {
+            ShowAppointments frm = new ShowAppointments();
+
+            frm.ShowDialog();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
-
+            AddContact frm = new AddContact();
+            frm.ShowDialog();
         }
+
     }
 }

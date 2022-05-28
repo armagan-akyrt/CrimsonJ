@@ -8,10 +8,12 @@ namespace CrimsonJ.Classes
 {
     class Appointment
     {
-        private string entry;
-        private DateTime createdFor;
-        private DateTime createdAt;
-        private Contact contact;
+        #region Variables
+        public string entry;
+        public DateTime createdFor;
+        public DateTime createdAt;
+        public Contact contact;
+        #endregion
 
         public Appointment(string entry, DateTime createdFor, Contact contact)
         {

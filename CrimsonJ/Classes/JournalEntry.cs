@@ -11,10 +11,12 @@ namespace CrimsonJ
 {
     public class JournalEntry
     {
+        #region Variables
         private int id;// id
         private string entry; // journal entry
         private DateTime createdAt; // date created
         private ArrayList formatIdentifiers = new ArrayList(); // hashtable
+        #endregion
 
         public JournalEntry(int id, string entry, DateTime createdAt)
         {
@@ -27,7 +29,7 @@ namespace CrimsonJ
             formatIdentifiers.Add("(---)(.*)(---)"); // underline
             formatIdentifiers.Add("(~~~)(.*)(~~~)"); // italic
             formatIdentifiers.Add("(#)(.*)(#)"); // score out
-            formatIdentifiers.Add("(>>>)(.*)()"); // bullet points
+            formatIdentifiers.Add("(>>>)(.*)(\n)"); // bullet points
 
         }
 
@@ -53,7 +55,6 @@ namespace CrimsonJ
                     foreach (Match mt in match)
                     {
 
-                        entry = rx.Replace(entry, mt.Groups[2].Value, 1);
                        
                         int start = mt.Groups[2].Index; // start index
                         int length = mt.Groups[2].Length; // length of capture
