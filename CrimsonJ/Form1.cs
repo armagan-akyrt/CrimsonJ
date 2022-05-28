@@ -146,6 +146,9 @@ namespace CrimsonJ
         private void Form1_Load(object sender, EventArgs e)
         {
 
+            if (!Directory.Exists(temp))
+                Directory.CreateDirectory(temp);
+
             conn = new Connection();
             conn.Connect();
 
@@ -154,8 +157,7 @@ namespace CrimsonJ
 
 
 
-            if (!Directory.Exists(temp))
-                Directory.CreateDirectory(temp);
+            
 
             rtxEntry.Text = conn.GetFromJournal(cldCJ.TodayDate);
             

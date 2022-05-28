@@ -49,7 +49,6 @@ namespace CrimsonJ
         {
 
             
-
             List<string> contact = new List<string>();
             conn = new Connection();
             conn.Connect();
@@ -69,6 +68,8 @@ namespace CrimsonJ
                 lstContacts.Items.Add(str);
             }
         }
+
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
