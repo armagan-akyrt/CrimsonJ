@@ -176,13 +176,14 @@ namespace CrimsonJ
                 
                 listAppointments = conn.GetAppointments(today);
                 today = today.AddDays(1);
-                //
+
 
                 for (int j = 0; j < listAppointments["names"].Count; j++)
                 {
                     StringBuilder sb = new StringBuilder();
                     sb.Append(listAppointments["names"][j] + "\t");
                     sb.Append(listAppointments["createdFor"][j]);
+
                     listBox1.Items.Add(sb.ToString());
                 }
 

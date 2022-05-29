@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrimsonJ.Classes;
@@ -15,6 +16,7 @@ namespace CrimsonJ
     {
 
         Connection conn;
+        bool checkEmail = false;
         public AddContact()
         {
             InitializeComponent();
@@ -57,8 +59,18 @@ namespace CrimsonJ
         private void btnAddContact_Click(object sender, EventArgs e)
         {
             Contact contact = new Contact(txtName.Text, txtSurname.Text, txtAddress.Text, txtGsm.Text, txtEmail.Text);
-            conn.InsertContact(contact);
-            this.Close();
+            Regex rx = new Regex(".+@.+\\.[A-z]+");
+            checkEmail = rx.IsMatch(txtEmail.Text);
+            
+            if (checkEmail)
+            {
+                conn.InsertContact(contact);
+                this.Close();
+            }
+            else
+            {
+                txtEmail.Text = "please enter a valid email.";
+            }
         }
 
         private void getContact_Click(object sender, EventArgs e)

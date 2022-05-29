@@ -34,7 +34,7 @@ namespace CrimsonJ
 
             email = lstContacts.Text;
 
-            if (email.Length == 0)
+            if (email.Length <= 5)
             { 
                 lstContacts.SelectedIndex = lstContacts.Items.Count - 1;
                 email = lstContacts.Text;
@@ -118,10 +118,10 @@ namespace CrimsonJ
             {
                 // builds the string to list contacts.
                 StringBuilder sb = new StringBuilder();
-                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "/ ");
+                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "\t \t ");
                 //sb.Append(contacts["surnames"][i] + ",");
-                sb.Append(contacts["gsms"][i] + "/ ");
-                sb.Append(contacts["emails"][i] + "/ ");
+                sb.Append(contacts["gsms"][i] + "\t \t ");
+                sb.Append(contacts["emails"][i] + "\t \t ");
                 sb.Append(contacts["addresses"][i]);
                 string str = sb.ToString();
 
