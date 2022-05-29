@@ -41,7 +41,7 @@ namespace CrimsonJ
             this.lstContacts.FormattingEnabled = true;
             this.lstContacts.ItemHeight = 16;
             this.lstContacts.Location = new System.Drawing.Point(12, 71);
-            this.lstContacts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstContacts.Margin = new System.Windows.Forms.Padding(4);
             this.lstContacts.Name = "lstContacts";
             this.lstContacts.Size = new System.Drawing.Size(1117, 292);
             this.lstContacts.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace CrimsonJ
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(135, 15);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(204, 22);
             this.textBox1.TabIndex = 1;
@@ -68,8 +68,9 @@ namespace CrimsonJ
             // 
             // btnEditContact
             // 
+            this.btnEditContact.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEditContact.Location = new System.Drawing.Point(1031, 395);
-            this.btnEditContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditContact.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditContact.Name = "btnEditContact";
             this.btnEditContact.Size = new System.Drawing.Size(100, 28);
             this.btnEditContact.TabIndex = 3;
@@ -79,6 +80,7 @@ namespace CrimsonJ
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(931, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 28);
@@ -97,7 +99,7 @@ namespace CrimsonJ
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lstContacts);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ShowContacts";
             this.Text = "ShowContacts";
             this.Load += new System.EventHandler(this.ShowContacts_Load);

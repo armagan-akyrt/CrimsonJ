@@ -44,95 +44,107 @@ namespace CrimsonJ
             // 
             // txtAddress
             // 
-            this.txtAddress.Location = new System.Drawing.Point(70, 192);
+            this.txtAddress.Location = new System.Drawing.Point(93, 236);
+            this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.Size = new System.Drawing.Size(242, 96);
+            this.txtAddress.Size = new System.Drawing.Size(321, 117);
             this.txtAddress.TabIndex = 22;
             this.txtAddress.Text = "";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 199);
+            this.label5.Location = new System.Drawing.Point(16, 245);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 13);
+            this.label5.Size = new System.Drawing.Size(61, 16);
             this.label5.TabIndex = 21;
             this.label5.Text = "Address:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 156);
+            this.label4.Location = new System.Drawing.Point(16, 192);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(40, 16);
             this.label4.TabIndex = 20;
             this.label4.Text = "GSM:";
             // 
             // txtGsm
             // 
-            this.txtGsm.Location = new System.Drawing.Point(70, 153);
+            this.txtGsm.Location = new System.Drawing.Point(93, 188);
+            this.txtGsm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtGsm.Name = "txtGsm";
-            this.txtGsm.Size = new System.Drawing.Size(242, 20);
+            this.txtGsm.Size = new System.Drawing.Size(321, 22);
             this.txtGsm.TabIndex = 19;
             this.txtGsm.Text = " ";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 117);
+            this.label3.Location = new System.Drawing.Point(16, 144);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 18;
             this.label3.Text = "E-mail:";
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(70, 114);
+            this.txtEmail.Location = new System.Drawing.Point(93, 140);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(242, 20);
+            this.txtEmail.Size = new System.Drawing.Size(321, 22);
             this.txtEmail.TabIndex = 17;
             this.txtEmail.Text = " ";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 75);
+            this.label2.Location = new System.Drawing.Point(16, 92);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(64, 16);
             this.label2.TabIndex = 16;
             this.label2.Text = "Surname:";
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(70, 72);
+            this.txtSurname.Location = new System.Drawing.Point(93, 89);
+            this.txtSurname.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(242, 20);
+            this.txtSurname.Size = new System.Drawing.Size(321, 22);
             this.txtSurname.TabIndex = 15;
             this.txtSurname.Text = " ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 34);
+            this.label1.Location = new System.Drawing.Point(16, 42);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(47, 16);
             this.label1.TabIndex = 14;
             this.label1.Text = "Name:";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(70, 31);
+            this.txtName.Location = new System.Drawing.Point(93, 38);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(242, 20);
+            this.txtName.Size = new System.Drawing.Size(321, 22);
             this.txtName.TabIndex = 13;
             this.txtName.Text = " ";
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // btnAddContact
             // 
-            this.btnAddContact.Location = new System.Drawing.Point(237, 307);
+            this.btnAddContact.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAddContact.Location = new System.Drawing.Point(316, 378);
+            this.btnAddContact.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddContact.Name = "btnAddContact";
-            this.btnAddContact.Size = new System.Drawing.Size(75, 23);
+            this.btnAddContact.Size = new System.Drawing.Size(100, 28);
             this.btnAddContact.TabIndex = 12;
             this.btnAddContact.Text = "Update";
             this.btnAddContact.UseVisualStyleBackColor = true;
@@ -140,9 +152,9 @@ namespace CrimsonJ
             // 
             // EditContact
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(327, 345);
+            this.ClientSize = new System.Drawing.Size(436, 425);
             this.Controls.Add(this.txtAddress);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -154,6 +166,7 @@ namespace CrimsonJ
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnAddContact);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EditContact";
             this.Text = "EditContact";
             this.Load += new System.EventHandler(this.EditContact_Load);

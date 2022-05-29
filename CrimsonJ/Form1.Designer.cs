@@ -35,7 +35,6 @@ namespace CrimsonJ
             this.btnToday = new System.Windows.Forms.Button();
             this.btnForward = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.rtxEntry = new System.Windows.Forms.RichTextBox();
             this.button2 = new System.Windows.Forms.Button();
@@ -66,6 +65,7 @@ namespace CrimsonJ
             this.btnToday.BackColor = System.Drawing.Color.Transparent;
             this.btnToday.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnToday.BackgroundImage")));
             this.btnToday.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnToday.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnToday.Location = new System.Drawing.Point(99, 28);
             this.btnToday.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnToday.Name = "btnToday";
@@ -80,6 +80,7 @@ namespace CrimsonJ
             this.btnForward.BackColor = System.Drawing.Color.Transparent;
             this.btnForward.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnForward.BackgroundImage")));
             this.btnForward.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnForward.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnForward.Location = new System.Drawing.Point(194, 28);
             this.btnForward.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnForward.Name = "btnForward";
@@ -94,6 +95,7 @@ namespace CrimsonJ
             this.btnBack.BackColor = System.Drawing.Color.Transparent;
             this.btnBack.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnBack.BackgroundImage")));
             this.btnBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBack.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBack.Location = new System.Drawing.Point(5, 28);
             this.btnBack.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnBack.Name = "btnBack";
@@ -103,16 +105,6 @@ namespace CrimsonJ
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1183, 24);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // listBox1
             // 
             this.listBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -120,11 +112,11 @@ namespace CrimsonJ
             this.listBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.listBox1.Font = new System.Drawing.Font("Constantia", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 18;
+            this.listBox1.ItemHeight = 23;
             this.listBox1.Location = new System.Drawing.Point(5, 284);
             this.listBox1.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(227, 290);
+            this.listBox1.Size = new System.Drawing.Size(227, 278);
             this.listBox1.TabIndex = 6;
             this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -134,7 +126,7 @@ namespace CrimsonJ
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxEntry.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.rtxEntry.Cursor = System.Windows.Forms.Cursors.Default;
+            this.rtxEntry.Cursor = System.Windows.Forms.Cursors.Hand;
             this.rtxEntry.Font = new System.Drawing.Font("Constantia", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxEntry.ForeColor = System.Drawing.SystemColors.WindowText;
             this.rtxEntry.Location = new System.Drawing.Point(281, 61);
@@ -152,6 +144,7 @@ namespace CrimsonJ
             this.button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.Location = new System.Drawing.Point(703, 28);
             this.button2.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -168,6 +161,7 @@ namespace CrimsonJ
             this.button3.BackColor = System.Drawing.Color.Transparent;
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.Location = new System.Drawing.Point(823, 28);
@@ -185,6 +179,7 @@ namespace CrimsonJ
             this.btnContacts.BackColor = System.Drawing.Color.Transparent;
             this.btnContacts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnContacts.BackgroundImage")));
             this.btnContacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnContacts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnContacts.ForeColor = System.Drawing.SystemColors.InfoText;
             this.btnContacts.Image = ((System.Drawing.Image)(resources.GetObject("btnContacts.Image")));
             this.btnContacts.Location = new System.Drawing.Point(937, 28);
@@ -202,6 +197,7 @@ namespace CrimsonJ
             this.btnAppointment.BackColor = System.Drawing.Color.Transparent;
             this.btnAppointment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAppointment.BackgroundImage")));
             this.btnAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAppointment.Location = new System.Drawing.Point(703, 96);
             this.btnAppointment.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAppointment.Name = "btnAppointment";
@@ -217,6 +213,7 @@ namespace CrimsonJ
             this.btnJournal.BackColor = System.Drawing.Color.Transparent;
             this.btnJournal.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnJournal.BackgroundImage")));
             this.btnJournal.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnJournal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnJournal.Location = new System.Drawing.Point(703, 62);
             this.btnJournal.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnJournal.Name = "btnJournal";
@@ -232,6 +229,7 @@ namespace CrimsonJ
             this.btnSave.BackColor = System.Drawing.Color.Transparent;
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSave.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnSave.Image = ((System.Drawing.Image)(resources.GetObject("btnSave.Image")));
             this.btnSave.Location = new System.Drawing.Point(1075, 612);
@@ -255,6 +253,7 @@ namespace CrimsonJ
             this.btnShowContacts.BackColor = System.Drawing.Color.Transparent;
             this.btnShowContacts.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowContacts.BackgroundImage")));
             this.btnShowContacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnShowContacts.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowContacts.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnShowContacts.Location = new System.Drawing.Point(937, 62);
             this.btnShowContacts.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
@@ -271,6 +270,7 @@ namespace CrimsonJ
             this.btnAddContact.BackColor = System.Drawing.Color.Transparent;
             this.btnAddContact.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnAddContact.BackgroundImage")));
             this.btnAddContact.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnAddContact.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAddContact.Location = new System.Drawing.Point(937, 96);
             this.btnAddContact.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnAddContact.Name = "btnAddContact";
@@ -286,6 +286,7 @@ namespace CrimsonJ
             this.btnShowAppointment.BackColor = System.Drawing.Color.Transparent;
             this.btnShowAppointment.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnShowAppointment.BackgroundImage")));
             this.btnShowAppointment.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnShowAppointment.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnShowAppointment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnShowAppointment.Image = ((System.Drawing.Image)(resources.GetObject("btnShowAppointment.Image")));
             this.btnShowAppointment.Location = new System.Drawing.Point(1049, 28);
@@ -303,16 +304,16 @@ namespace CrimsonJ
             this.label1.Font = new System.Drawing.Font("Constantia", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(1, 259);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(146, 21);
+            this.label1.Size = new System.Drawing.Size(187, 27);
             this.label1.TabIndex = 17;
             this.label1.Text = "Upcoming Events:";
             // 
             // FrmCrimsonJ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackColor = System.Drawing.Color.SeaShell;
+            this.BackColor = System.Drawing.Color.Ivory;
             this.ClientSize = new System.Drawing.Size(1183, 651);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnShowAppointment);
@@ -330,10 +331,8 @@ namespace CrimsonJ
             this.Controls.Add(this.btnForward);
             this.Controls.Add(this.btnToday);
             this.Controls.Add(this.cldCJ);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Constantia", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.Name = "FrmCrimsonJ";
             this.Text = "CrimsonJ";
@@ -349,7 +348,6 @@ namespace CrimsonJ
         private System.Windows.Forms.Button btnToday;
         private System.Windows.Forms.Button btnForward;
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.RichTextBox rtxEntry;
         private System.Windows.Forms.Button button2;

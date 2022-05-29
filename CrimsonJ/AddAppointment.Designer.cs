@@ -45,7 +45,7 @@ namespace CrimsonJ
             // txtAppointmentName
             // 
             this.txtAppointmentName.Location = new System.Drawing.Point(16, 82);
-            this.txtAppointmentName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAppointmentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtAppointmentName.Name = "txtAppointmentName";
             this.txtAppointmentName.Size = new System.Drawing.Size(293, 22);
             this.txtAppointmentName.TabIndex = 0;
@@ -65,7 +65,7 @@ namespace CrimsonJ
             this.lstContacts.FormattingEnabled = true;
             this.lstContacts.ItemHeight = 16;
             this.lstContacts.Location = new System.Drawing.Point(20, 181);
-            this.lstContacts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lstContacts.Margin = new System.Windows.Forms.Padding(4);
             this.lstContacts.Name = "lstContacts";
             this.lstContacts.Size = new System.Drawing.Size(380, 244);
             this.lstContacts.TabIndex = 2;
@@ -83,8 +83,9 @@ namespace CrimsonJ
             // 
             // btnSelect
             // 
+            this.btnSelect.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSelect.Location = new System.Drawing.Point(680, 441);
-            this.btnSelect.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSelect.Margin = new System.Windows.Forms.Padding(4);
             this.btnSelect.Name = "btnSelect";
             this.btnSelect.Size = new System.Drawing.Size(100, 28);
             this.btnSelect.TabIndex = 4;
@@ -94,8 +95,9 @@ namespace CrimsonJ
             // 
             // btnEdit
             // 
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEdit.Location = new System.Drawing.Point(193, 433);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(4);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(100, 28);
             this.btnEdit.TabIndex = 5;
@@ -105,8 +107,9 @@ namespace CrimsonJ
             // 
             // btnAdd
             // 
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAdd.Location = new System.Drawing.Point(85, 433);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 6;
@@ -127,7 +130,7 @@ namespace CrimsonJ
             // txtSearch
             // 
             this.txtSearch.Location = new System.Drawing.Point(140, 149);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(132, 22);
             this.txtSearch.TabIndex = 8;
@@ -166,7 +169,8 @@ namespace CrimsonJ
             this.Controls.Add(this.lstContacts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtAppointmentName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "AddAppointment";
             this.Text = "AddAppointment";
             this.Load += new System.EventHandler(this.AddAppointment_Load);

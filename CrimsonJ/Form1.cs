@@ -249,6 +249,7 @@ namespace CrimsonJ
                 btnShowContacts.Show();
                 btnAddContact.Show();
                 enCnt = true;
+
             }
             else
             {
