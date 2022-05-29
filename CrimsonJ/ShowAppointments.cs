@@ -75,6 +75,8 @@ namespace CrimsonJ
         private void lstAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
             int x = lstAppointments.SelectedIndex;
+            if (x == -1)
+                x = lstAppointments.Items.Count - 1;
 
             txtAppointment.Text = val["names"][x];
             txtContact.Text = val["emails"][x];
@@ -99,6 +101,12 @@ namespace CrimsonJ
             Appointment appointment = new Appointment(rtxEntry.Text, dtpMeetingDate.Value, contact);
 
             conn.UpdateAppointment(oldName, txtAppointment.Text, appointment);
+            oldName = txtAppointment.Text;
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            conn.DeleteAppointment(oldName);
         }
     }
 }

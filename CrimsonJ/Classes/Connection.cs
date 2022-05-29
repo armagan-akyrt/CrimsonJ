@@ -260,7 +260,10 @@ namespace CrimsonJ.Classes
         {
             string sql = @"UPDATE Appointment 
                             SET appointmentName = @name, entry = @entry, createdFor = @createdFor
-                            WHERE appointmentName = @oldName;";
+                            WHERE appointmentName = @oldName;
+                        UPDATE Contain 
+                            SET appointmentName = @name, contactEmail = @email
+                            where appointmentName = @oldName;";
 
             con.Open();
 
@@ -269,9 +272,28 @@ namespace CrimsonJ.Classes
             cmd.Parameters.Add(new SQLiteParameter("@entry", newAppointment.entry));
             cmd.Parameters.Add(new SQLiteParameter("@createdFor", newAppointment.createdFor.ToShortDateString()));
             cmd.Parameters.Add(new SQLiteParameter("@oldName", oldName));
+            cmd.Parameters.Add(new SQLiteParameter("@email", newAppointment.contact.email));
+
+            cmd.ExecuteNonQuery();
 
             con.Close();
 
+        }
+
+        /// <summary>
+        /// Delete the specified row from appointment.
+        /// </summary>
+        /// <param name="name"></param>
+        public void DeleteAppointment(string name)
+        {
+            string sql = "DELETE FROM Appointment WHERE appointmentName = @name";
+
+            con.Open();
+            cmd = new SQLiteCommand(sql, con);
+            cmd.Parameters.Add(new SQLiteParameter("@name", name));
+
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
         /// <summary>

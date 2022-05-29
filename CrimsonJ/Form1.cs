@@ -25,7 +25,6 @@ namespace CrimsonJ
         string textIn;
         Connection conn;
 
-
         public FrmCrimsonJ()
         {
             InitializeComponent();
@@ -50,6 +49,7 @@ namespace CrimsonJ
 
             for (int i = 0; i < lst.Count; i++)
             {
+                
                 int type = lst[i][0];
                 rtxEntry.SelectionStart = lst[i][1];
                 rtxEntry.SelectionLength = lst[i][2];
@@ -167,6 +167,27 @@ namespace CrimsonJ
             btnShowContacts.Hide();
 
 
+            DateTime today = DateTime.Today;
+
+            Dictionary<string, List<string>> listAppointments = new Dictionary<string, List<string>>();
+
+            for (int i = 0; i < 7; i++)
+            {
+                
+                listAppointments = conn.GetAppointments(today);
+                today = today.AddDays(1);
+                //
+
+                for (int j = 0; j < listAppointments["names"].Count; j++)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append(listAppointments["names"][j] + "\t");
+                    sb.Append(listAppointments["createdFor"][j]);
+                    listBox1.Items.Add(sb.ToString());
+                }
+
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -249,7 +270,8 @@ namespace CrimsonJ
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
+            
         }
 
         private void button3_Click(object sender, EventArgs e)

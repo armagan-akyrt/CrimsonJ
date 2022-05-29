@@ -31,10 +31,14 @@ namespace CrimsonJ
 
         private void lstContacts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             email = lstContacts.Text;
 
-            if (email.Length == 0) ;
+            if (email.Length == 0)
+            { 
+                lstContacts.SelectedIndex = lstContacts.Items.Count - 1;
+                email = lstContacts.Text;
+            }
             else
             {
                 Regex rx = new Regex("(.*\\s)(.+@.+\\.[A-z]+)(\\s.*)");
@@ -58,20 +62,7 @@ namespace CrimsonJ
             conn = new Connection();
             conn.Connect();
 
-            contacts = conn.GetAllContacts();
-
-            for (int i = 0; i < contacts["emails"].Count; i++)
-            {
-                StringBuilder sb = new StringBuilder();
-                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "\t \t ");
-                //sb.Append(contacts["surnames"][i] + ",");
-                sb.Append(contacts["gsms"][i] + "\t \t ");
-                sb.Append(contacts["emails"][i] + " \t \t  ");
-                sb.Append(contacts["addresses"][i]);
-                string str = sb.ToString();
-
-                lstContacts.Items.Add(str);
-            }
+            PrintList();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -79,22 +70,7 @@ namespace CrimsonJ
 
             lstContacts.Items.Clear();
 
-             contacts = conn.GetAllContacts(textBox1.Text);
-
-            
-            for (int i = 0; i < contacts["emails"].Count; i++)
-            {
-                // builds the string to list contacts.
-                StringBuilder sb = new StringBuilder();
-                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "/ ");
-                //sb.Append(contacts["surnames"][i] + ",");
-                sb.Append(contacts["gsms"][i] + "/ ");
-                sb.Append(contacts["emails"][i] + "/ ");
-                sb.Append(contacts["addresses"][i]);
-                string str = sb.ToString();
-
-                lstContacts.Items.Add(str);
-            }
+            PrintList(textBox1.Text);
         }
 
         private void btnEditContact_Click(object sender, EventArgs e)
@@ -112,6 +88,45 @@ namespace CrimsonJ
         {
             conn.DeleteContact(email);
 
+        }
+
+
+        public void PrintList()
+        {
+            contacts = conn.GetAllContacts();
+
+            for (int i = 0; i < contacts["emails"].Count; i++)
+            {
+                StringBuilder sb = new StringBuilder();
+                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "\t \t ");
+                //sb.Append(contacts["surnames"][i] + ",");
+                sb.Append(contacts["gsms"][i] + "\t \t ");
+                sb.Append(contacts["emails"][i] + " \t \t  ");
+                sb.Append(contacts["addresses"][i]);
+                string str = sb.ToString();
+
+                lstContacts.Items.Add(str);
+            }
+        }
+
+        public void PrintList(string name)
+        {
+            contacts = conn.GetAllContacts(name);
+
+
+            for (int i = 0; i < contacts["emails"].Count; i++)
+            {
+                // builds the string to list contacts.
+                StringBuilder sb = new StringBuilder();
+                sb.Append(contacts["names"][i] + " " + contacts["surnames"][i] + "/ ");
+                //sb.Append(contacts["surnames"][i] + ",");
+                sb.Append(contacts["gsms"][i] + "/ ");
+                sb.Append(contacts["emails"][i] + "/ ");
+                sb.Append(contacts["addresses"][i]);
+                string str = sb.ToString();
+
+                lstContacts.Items.Add(str);
+            }
         }
     }
 }
