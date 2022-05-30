@@ -81,58 +81,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddAppointment.cs">
+    <Compile Include="Forms\AddAppointment.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddAppointment.Designer.cs">
+    <Compile Include="Forms\AddAppointment.Designer.cs">
       <DependentUpon>AddAppointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddContact.cs">
+    <Compile Include="Forms\AddContact.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddContact.Designer.cs">
+    <Compile Include="Forms\AddContact.Designer.cs">
       <DependentUpon>AddContact.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\Appointment.cs" />
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\Contact.cs" />
-    <Compile Include="EditContact.cs">
+    <Compile Include="Forms\EditContact.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditContact.Designer.cs">
+    <Compile Include="Forms\EditContact.Designer.cs">
       <DependentUpon>EditContact.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Classes\JournalEntry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ShowAppointments.cs">
+    <Compile Include="Forms\ShowAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowAppointments.Designer.cs">
+    <Compile Include="Forms\ShowAppointments.Designer.cs">
       <DependentUpon>ShowAppointments.cs</DependentUpon>
     </Compile>
-    <Compile Include="ShowContacts.cs">
+    <Compile Include="Forms\ShowContacts.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ShowContacts.Designer.cs">
+    <Compile Include="Forms\ShowContacts.Designer.cs">
       <DependentUpon>ShowContacts.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddAppointment.resx">
+    <EmbeddedResource Include="Forms\AddAppointment.resx">
       <DependentUpon>AddAppointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddContact.resx">
+    <EmbeddedResource Include="Forms\AddContact.resx">
       <DependentUpon>AddContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditContact.resx">
+    <EmbeddedResource Include="Forms\EditContact.resx">
       <DependentUpon>EditContact.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -144,10 +144,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ShowAppointments.resx">
+    <EmbeddedResource Include="Forms\ShowAppointments.resx">
       <DependentUpon>ShowAppointments.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ShowContacts.resx">
+    <EmbeddedResource Include="Forms\ShowContacts.resx">
       <DependentUpon>ShowContacts.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
