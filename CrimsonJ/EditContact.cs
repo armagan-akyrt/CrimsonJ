@@ -53,6 +53,7 @@ namespace CrimsonJ
             // updates the contact information.
             Contact updContact = new Contact(txtName.Text, txtSurname.Text, txtAddress.Text, txtGsm.Text, txtEmail.Text);
             conn.UpdateContact(updContact, oldEmail);
+            this.Close();
         }
     }
 }

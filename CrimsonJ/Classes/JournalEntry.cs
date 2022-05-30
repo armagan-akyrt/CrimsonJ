@@ -18,6 +18,12 @@ namespace CrimsonJ
         private ArrayList formatIdentifiers = new ArrayList(); // hashtable
         #endregion
 
+        /// <summary>
+        /// Create a journal entry
+        /// </summary>
+        /// <param name="id"> id, not used.</param>
+        /// <param name="entry"> journal entry</param>
+        /// <param name="createdAt"> creation date.</param>
         public JournalEntry(int id, string entry, DateTime createdAt)
         {
             this.Id = id; 

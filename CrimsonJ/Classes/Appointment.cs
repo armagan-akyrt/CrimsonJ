@@ -15,6 +15,12 @@ namespace CrimsonJ.Classes
         public Contact contact;
         #endregion
 
+        /// <summary>
+        /// Create  an appointment
+        /// </summary>
+        /// <param name="entry">appointment entry</param>
+        /// <param name="createdFor"> appointment date</param>
+        /// <param name="contact"> person to meet</param>
         public Appointment(string entry, DateTime createdFor, Contact contact)
         {
             this.entry = entry;

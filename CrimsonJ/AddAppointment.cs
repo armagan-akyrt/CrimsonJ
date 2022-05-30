@@ -1,12 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrimsonJ.Classes;
 
@@ -35,6 +30,7 @@ namespace CrimsonJ
             conn = new Connection();
             conn.Connect();
 
+            // prints all the appointments
             contacts = conn.GetAllContacts();
 
             for (int i = 0; i < contacts["emails"].Count; i++)
@@ -56,9 +52,10 @@ namespace CrimsonJ
 
             lstContacts.Items.Clear();
 
+            
             contacts = conn.GetAllContacts(txtSearch.Text);
 
-
+            // prints the contacts to a list
             for (int i = 0; i < contacts["emails"].Count; i++)
             {
                 // builds the string to list contacts.
@@ -81,15 +78,14 @@ namespace CrimsonJ
         {
             email = lstContacts.Text;
 
-            if (email.Length == 0) ;
-            else
+            if (email.Length != 0) // if email is not empty, retrieve the contact from the database.
             {
                 Regex rx = new Regex("(.*/\\s)(.+@.+\\.[A-z]+)(/.*)");
                 Match match = rx.Match(email);
 
                 email = match.Groups[2].Value;
 
-                Dictionary<string, string> cnt = new Dictionary<string, string>();
+                Dictionary<string, string> cnt;
                 cnt = conn.GetContact(email);
                 selectedContact = new Contact(cnt["name"], cnt["surname"], cnt["address"], cnt["gsm"], cnt["email"]);
             }
@@ -99,8 +95,14 @@ namespace CrimsonJ
         {
             DateTime createdFor = cldAppointment.SelectionStart;
             
-            conn.InsertAppointment(entry, DateTime.Today, createdFor, txtAppointmentName.Text, email);
-            this.Close();
+            bool ret = conn.InsertAppointment(entry, DateTime.Today, createdFor, txtAppointmentName.Text, email);
+
+            if (ret) // if name is valid & contact etc is selected, inserts and closes the panel. else, pops an error message in textbox.
+                this.Close();
+            else
+                txtAppointmentName.Text = "A problem occured, please be sure all values are selected & name is unique.";
+            
+            
         }
 
         private void btnEdit_Click(object sender, EventArgs e)

@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CrimsonJ.Classes;
 using System.Text.RegularExpressions;
@@ -22,9 +16,10 @@ namespace CrimsonJ
 
         public ShowAppointments()
         {
-            InitializeComponent();
-            MaximizeBox = false;
+            InitializeComponent(); 
+            MaximizeBox = false; 
             MinimizeBox = false;
+            
             
         }
 
@@ -38,8 +33,8 @@ namespace CrimsonJ
             conn = new Connection();
             conn.Connect();
 
-            cldAppointments.MaxSelectionCount = 1;
-            cldAppointments.SelectionStart = DateTime.Today;
+            cldAppointments.MaxSelectionCount = 1; // max selection range (user can only select 1 day)
+            cldAppointments.SelectionStart = DateTime.Today; // on load, selected date is today, to escape some bugs.
 
             changeList();
 
@@ -54,7 +49,9 @@ namespace CrimsonJ
         }
 
 
-
+        /// <summary>
+        /// Changes the list by initially selected date.
+        /// </summary>
         public void changeList()
         {
             val = conn.GetAppointments(cldAppointments.SelectionStart);
@@ -74,10 +71,11 @@ namespace CrimsonJ
 
         private void lstAppointments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int x = lstAppointments.SelectedIndex;
-            if (x == -1)
+            int x = lstAppointments.SelectedIndex; // selected index
+            if (x == -1)    // to prevent indexoutofbound
                 x = lstAppointments.Items.Count - 1;
 
+            // print values to form
             txtAppointment.Text = val["names"][x];
             txtContact.Text = val["emails"][x];
             rtxEntry.Text = val["entries"][x];
@@ -86,9 +84,9 @@ namespace CrimsonJ
             Dictionary<string, string> cnt = new Dictionary<string, string>();
             cnt = conn.GetContact(txtContact.Text);
             Contact contact = new Contact(cnt["name"], cnt["surname"], cnt["address"], cnt["gsm"], cnt["email"]);
-            oldAppointment = new Appointment(rtxEntry.Text, dtpMeetingDate.Value, contact);
+            oldAppointment = new Appointment(rtxEntry.Text, dtpMeetingDate.Value, contact); // save the old appointment
 
-            oldName = txtAppointment.Text;
+            oldName = txtAppointment.Text; // update the old name
 
 
         }
@@ -97,16 +95,26 @@ namespace CrimsonJ
         {
             Dictionary<string, string> cnt = new Dictionary<string, string>();
             cnt = conn.GetContact(txtContact.Text);
-            Contact contact = new Contact(cnt["name"], cnt["surname"], cnt["address"], cnt["gsm"], cnt["email"]);
-            Appointment appointment = new Appointment(rtxEntry.Text, dtpMeetingDate.Value, contact);
 
-            conn.UpdateAppointment(oldName, txtAppointment.Text, appointment);
-            oldName = txtAppointment.Text;
+
+            try // if email does not exist in db, prints a warning to the user.
+            {
+
+                Contact contact = new Contact(cnt["name"], cnt["surname"], cnt["address"], cnt["gsm"], cnt["email"]);
+                Appointment appointment = new Appointment(rtxEntry.Text, dtpMeetingDate.Value, contact);
+
+                conn.UpdateAppointment(oldName, txtAppointment.Text, appointment);
+                oldName = txtAppointment.Text;
+            }
+            catch (KeyNotFoundException)
+            {
+                txtContact.Text = "Please enter a valid email";
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            conn.DeleteAppointment(oldName);
+            conn.DeleteAppointment(oldName); // drop the specific row from Appointment table.
         }
     }
 }

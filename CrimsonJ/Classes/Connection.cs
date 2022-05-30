@@ -98,7 +98,22 @@ namespace CrimsonJ.Classes
             cmd = new SQLiteCommand(sql, con);
             cmd.Parameters.Add(new SQLiteParameter("@createdAt", date));
 
-            try
+
+            dr = cmd.ExecuteReader();
+
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    ret = dr["entry"].ToString();
+                }
+                
+            }
+
+            else
+                ret = "";
+            
+            /*try
             {
                ret = cmd.ExecuteScalar().ToString();
             }
@@ -107,7 +122,7 @@ namespace CrimsonJ.Classes
                 Console.WriteLine("The entry does not exist.");
                 con.Close();
                 return "";
-            }
+            }*/
             
             con.Close();
             
@@ -132,11 +147,16 @@ namespace CrimsonJ.Classes
             cmd = new SQLiteCommand(sql, con);
             cmd.Parameters.Add(new SQLiteParameter("@entry", entry));
             cmd.Parameters.Add(new SQLiteParameter("@createdAt", date));
+
+            //cmd.ExecuteNonQuery();
+
+            
             try
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (System.Data.SQLite.SQLiteException e) // exception, if entry exists, simply updates the journal
+            
+            catch (SQLiteException) // exception, if entry exists, simply updates the journal
             {
                 con.Close();
                 UpdateJournal(createdAt, entry);
@@ -218,12 +238,18 @@ namespace CrimsonJ.Classes
         /// <param name="entry"> appointment notes</param>
         /// <param name="createdAt"> creation date of appointment (today)</param>
         /// <param name="createdFor"> appointment date & time</param>
-        public void InsertAppointment(string entry, DateTime createdAt, DateTime createdFor, string apName, string email) 
+        /// <returns> whether data is succsesfully inserted.</returns>
+        public bool InsertAppointment(string entry, DateTime createdAt, DateTime createdFor, string apName, string email) 
         {
             string strCrAt = createdAt.ToShortDateString();
             string strCrFor = createdFor.ToShortDateString();
 
-            string sql = @"INSERT INTO Appointment (appointmentName, entry, createdAt, createdFor) VALUES (@apName, @entry, @createdAt, @createdFor)";
+            Regex rx = new Regex(".+@.+\\.[A-z]+");
+
+            if (!rx.IsMatch(email)) return false;
+
+            string sql = @"INSERT INTO Appointment (appointmentName, entry, createdAt, createdFor) VALUES (@apName, @entry, @createdAt, @createdFor);
+                            INSERT INTO Contain (appointmentName, contactEmail) VALUES (@apName, @email)";
 
             con.Open();
             cmd = new SQLiteCommand(sql, con);
@@ -231,21 +257,24 @@ namespace CrimsonJ.Classes
             cmd.Parameters.Add(new SQLiteParameter("@entry", entry));
             cmd.Parameters.Add(new SQLiteParameter("@createdAt", strCrAt));
             cmd.Parameters.Add(new SQLiteParameter("@createdFor", strCrFor));
-
-            cmd.ExecuteNonQuery();
-            con.Close();
-
-            con.Open();
-            // querry to link appointment and provided contact 
-            sql = "INSERT INTO Contain (appointmentName, contactEmail) VALUES (@name, @email)";
-
-            cmd = new SQLiteCommand(sql, con);
-            cmd.Parameters.Add(new SQLiteParameter("@name", apName));
             cmd.Parameters.Add(new SQLiteParameter("@email", email));
-            cmd.ExecuteNonQuery();
+
+
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch
+            {
+                con.Close();
+                return false;
+            }
+
 
             con.Close();
-            
+
+            return true;
 
         }
 
@@ -316,7 +345,7 @@ namespace CrimsonJ.Classes
             {
                 cmd.ExecuteNonQuery();
             }
-            catch (System.Data.SQLite.SQLiteException e) // exception, if entry exists, simply updates the journal
+            catch (SQLiteException) // exception, if entry exists, simply updates the journal
             {
                 con.Close();
                 //UpdateJournal(createdAt, entry);
@@ -354,7 +383,7 @@ namespace CrimsonJ.Classes
                     ret.Add("address", dr["address"].ToString());
                 }
             }
-            catch(NullReferenceException e) // null pointer exception
+            catch(NullReferenceException) // null pointer exception
             {
                 Console.WriteLine("The contact does not exists");
                 con.Close();
@@ -374,7 +403,7 @@ namespace CrimsonJ.Classes
         {
             Dictionary<string, List<string>> ret = new Dictionary<string, List<string>>(); // dictionary for all the contacts
             // lists for all the contacts
-            List<string> names = new List<string>();
+            List<string> names = new List<string>(); 
             List<string> surnames = new List<string>();
             List<string> gsms = new List<string>();
             List<string> emails = new List<string>();
@@ -402,7 +431,7 @@ namespace CrimsonJ.Classes
                 ret.Add("emails", emails);
                 ret.Add("addresses", addresses);
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
                 Console.WriteLine("The contact does not exists");
                 con.Close();
@@ -422,6 +451,7 @@ namespace CrimsonJ.Classes
         public Dictionary<string, List<string>> GetAllContacts(string name)
         {
             Dictionary<string, List<string>> ret = new Dictionary<string, List<string>>();
+            // lists for contacts
             List<string> names = new List<string>();
             List<string> surnames = new List<string>();
             List<string> gsms = new List<string>();
@@ -451,7 +481,7 @@ namespace CrimsonJ.Classes
                 ret.Add("emails", emails);
                 ret.Add("addresses", addresses);
             }
-            catch (NullReferenceException e)
+            catch (NullReferenceException)
             {
                 Console.WriteLine("The contact does not exists");
                 con.Close();

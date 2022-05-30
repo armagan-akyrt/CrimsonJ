@@ -27,15 +27,14 @@ namespace CrimsonJ
 
         public FrmCrimsonJ()
         {
+
             InitializeComponent();
-            
 
         }
         
         /// <summary>
         /// Formats text according to user input. Check github readme for more documentation.
         /// </summary>
-
         public void formatText()
 
         {
@@ -125,7 +124,7 @@ namespace CrimsonJ
                 FileStream fs = File.OpenRead(fPath);
                 var sr = new StreamReader(fs);
 
-                //string journalEntry = sr.ReadToEnd();
+                
                 string today = cldCJ.SelectionStart.ToShortDateString();
                 string pattern = "(" + today + ")((.|\n)*)(" + today + ")";
                 Regex entry = new Regex(pattern);
@@ -223,6 +222,11 @@ namespace CrimsonJ
             
         }
 
+        /// <summary>
+        /// Whenever this button is clicked, goes back by 1 day.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBack_Click(object sender, EventArgs e)
         {
             DateTime curr = cldCJ.SelectionStart;
@@ -230,6 +234,11 @@ namespace CrimsonJ
             cldCJ.SelectionStart = curr;
         }
 
+        /// <summary>
+        /// Whenever this button is clicked, goes forward by 1 day.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnForward_Click(object sender, EventArgs e)
         {
             DateTime curr = cldCJ.SelectionStart;
@@ -237,6 +246,11 @@ namespace CrimsonJ
             cldCJ.SelectionStart = curr;
         }
 
+        /// <summary>
+        /// Whenever clicked, jumps to today.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnToday_Click(object sender, EventArgs e)
         {
             cldCJ.SelectionStart = DateTime.Today;
@@ -244,6 +258,7 @@ namespace CrimsonJ
 
         private void button4_Click(object sender, EventArgs e)
         {
+            // structure for dropdown menu.
             if (!enCnt)
             {
                 btnShowContacts.Show();
@@ -259,12 +274,13 @@ namespace CrimsonJ
             }
         }
 
+
         private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
         {
             cldCJ.MaxSelectionCount = 1;
 
-            rtxEntry.Text = conn.GetFromJournal(cldCJ.SelectionStart);
-            formatText();
+            rtxEntry.Text = conn.GetFromJournal(cldCJ.SelectionStart); // retrieve data from the journal
+            formatText(); // format the entry.
 
             
 
@@ -292,6 +308,8 @@ namespace CrimsonJ
 
         private void button5_Click(object sender, EventArgs e)
         {
+            // open insert appointment form.
+
             AddAppointment frm = new AddAppointment(rtxEntry.Text);
             frm.ShowDialog();
         }
@@ -309,19 +327,24 @@ namespace CrimsonJ
 
         private void button4_Click_3(object sender, EventArgs e)
         {
-            ShowContacts frm = new ShowContacts(false);
+            // open show contacts form.
+
+            ShowContacts frm = new ShowContacts(false); 
             frm.ShowDialog();
         }
 
         private void btnShowAppointment_Click(object sender, EventArgs e)
         {
-            ShowAppointments frm = new ShowAppointments();
+            // open show appointments form.
 
+            ShowAppointments frm = new ShowAppointments();
             frm.ShowDialog();
         }
 
         private void button5_Click_1(object sender, EventArgs e)
         {
+            // open insert contact form.
+
             AddContact frm = new AddContact();
             frm.ShowDialog();
         }

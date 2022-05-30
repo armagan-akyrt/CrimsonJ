@@ -16,6 +16,14 @@ namespace CrimsonJ.Classes
         public string email;
         #endregion
 
+        /// <summary>
+        /// Create a contact.
+        /// </summary>
+        /// <param name="name"> contact name</param>
+        /// <param name="surname"> contact last name</param>
+        /// <param name="address"> contact address</param>
+        /// <param name="gsm"> contact phone number</param>
+        /// <param name="email"> contact e-mail</param>
         public Contact(string name, string surname, string address, string gsm, string email)
         {
             this.name = name;
@@ -25,14 +33,6 @@ namespace CrimsonJ.Classes
             this.email = email;
         }
 
-        public void EditContact (string name, string surname, string address, string gsm, string email)
-        {
-            this.name = name;
-            this.surname = surname;
-            this.address = address;
-            this.gsm = gsm;
-            this.email = email;
-        }
 
 
     }

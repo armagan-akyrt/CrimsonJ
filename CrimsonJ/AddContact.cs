@@ -59,10 +59,10 @@ namespace CrimsonJ
         private void btnAddContact_Click(object sender, EventArgs e)
         {
             Contact contact = new Contact(txtName.Text, txtSurname.Text, txtAddress.Text, txtGsm.Text, txtEmail.Text);
-            Regex rx = new Regex(".+@.+\\.[A-z]+");
+            Regex rx = new Regex(".+@.+\\.[A-z]+"); // to match email
             checkEmail = rx.IsMatch(txtEmail.Text);
             
-            if (checkEmail)
+            if (checkEmail) // If email is valid, inserts into db, if not, waits for correct email.
             {
                 conn.InsertContact(contact);
                 this.Close();
@@ -75,7 +75,7 @@ namespace CrimsonJ
 
         private void getContact_Click(object sender, EventArgs e)
         {
-            conn.GetAllContacts();
+            conn.GetAllContacts(); // list all contacts.
         }
     }
 }

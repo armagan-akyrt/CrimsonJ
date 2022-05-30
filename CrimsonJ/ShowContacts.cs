@@ -32,7 +32,7 @@ namespace CrimsonJ
         private void lstContacts_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            email = lstContacts.Text;
+            email = lstContacts.Text; // entireity of selected list element
 
             if (email.Length <= 5)
             { 
@@ -41,14 +41,14 @@ namespace CrimsonJ
             }
             else
             {
-                Regex rx = new Regex("(.*\\s)(.+@.+\\.[A-z]+)(\\s.*)");
+                Regex rx = new Regex("(.*\\s)(.+@.+\\.[A-z]+)(\\s.*)"); // to match email
                 Match match = rx.Match(email);
 
                 email = match.Groups[2].Value;
 
                 Dictionary<string, string> cnt = new Dictionary<string, string>();
-                cnt = conn.GetContact(email);
-                selectedContact = new Contact(cnt["name"], cnt["surname"], cnt["address"], cnt["gsm"], cnt["email"]);
+                cnt = conn.GetContact(email); // retrieve contact
+                selectedContact = new Contact(cnt["name"], cnt["surname"], cnt["address"], cnt["gsm"], cnt["email"]); // selected contact from db
             }
             
         }
@@ -90,7 +90,9 @@ namespace CrimsonJ
 
         }
 
-
+        /// <summary>
+        /// Prints all the contacts to the list.
+        /// </summary>
         public void PrintList()
         {
             contacts = conn.GetAllContacts();
@@ -109,6 +111,10 @@ namespace CrimsonJ
             }
         }
 
+        /// <summary>
+        /// prints the matching contacts with the list.
+        /// </summary>
+        /// <param name="name"> Contact name to match</param>
         public void PrintList(string name)
         {
             contacts = conn.GetAllContacts(name);
