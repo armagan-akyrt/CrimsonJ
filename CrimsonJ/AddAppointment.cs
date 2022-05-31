@@ -24,6 +24,8 @@ namespace CrimsonJ
         {
             InitializeComponent();
             this.entry = entry;
+            MaximizeBox = false;
+            MinimizeBox = false;
         }
 
         private void AddAppointment_Load(object sender, EventArgs e)

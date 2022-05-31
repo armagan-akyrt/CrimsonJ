@@ -320,10 +320,20 @@ namespace CrimsonJ
             frm.ShowDialog();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+        
+        }
+
         private void button5_Click_1(object sender, EventArgs e)
         {
             AddContact frm = new AddContact();
             frm.ShowDialog();
+        }
+
+        public void refresh_Page()
+        {
+            this.Refresh();
         }
 
     }
